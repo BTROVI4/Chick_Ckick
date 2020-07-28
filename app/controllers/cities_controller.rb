@@ -44,6 +44,8 @@
 # end
 
 class CitiesController < ActionController::Base
+  layout 'application'
+
     def index
       @cities = City.all
     end
@@ -52,6 +54,10 @@ class CitiesController < ActionController::Base
       @city = City.find(params[:id])
     end
    
+    def show_companies
+      @city = City.find(params[:id])
+    end
+
     def new
       @city = City.new
     end

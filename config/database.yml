@@ -17,6 +17,8 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  user: pguser
+  password: 1111
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -29,7 +31,7 @@ development:
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: services_app
+  #username: services_app_backend
 
   # The password associated with the postgres role (username).
   #password:
@@ -80,6 +82,6 @@ test:
 #
 production:
   <<: *default
-  database: services_app_production
-  username: services_app
-  password: <%= ENV['SERVICES_APP_DATABASE_PASSWORD'] %>
+  database: services_app_backend_production
+  username: services_app_backend
+  password: <%= ENV['SERVICES_APP_BACKEND_DATABASE_PASSWORD'] %>

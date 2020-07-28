@@ -1,0 +1,18 @@
+<p>
+  <strong>Service name:</strong>
+  <tr>
+      <td><%= service.service_name %></td>
+    </tr>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= service.cost %>
+</p>
+
+
+<p>
+  <%= link_to 'Remove Company', city_company_service_path(@city, company, service),
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>

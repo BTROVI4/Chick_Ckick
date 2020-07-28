@@ -1,0 +1,21 @@
+<p>
+  <strong>Company name:</strong>
+  <tr>
+      <td><%= company.company_name %></td>
+    </tr>
+</p>
+
+<p>
+  <strong>Adress:</strong>
+  <%= company.adress %>
+</p>
+
+<p>
+  <%= link_to 'Show Company', city_company_path(@city, company) %>
+</p>
+
+<p>
+  <%= link_to 'Remove Company', city_company_path(@city, company),
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>

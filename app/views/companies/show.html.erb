@@ -1,0 +1,23 @@
+<% @city.companies.each do |company| %>
+<p>
+  <strong>Company name:</strong>
+  <tr>
+      <td><%= company.company_name %></td>
+    </tr>
+</p>
+
+<p>
+  <strong>Adress:</strong>
+  <%= company.adress %>
+</p>
+
+<% end %>
+<h2>Services list</h2>
+
+<%= render @company.services %>  
+
+<h2>Add a service:</h2>
+
+<%= render 'services/form' %>
+
+<%= link_to 'Back', cities_path %>

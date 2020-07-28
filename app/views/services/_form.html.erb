@@ -1,0 +1,13 @@
+<%= form_with(model: [ @city, @company, @city.companies.build.services.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :service_name %><br>
+    <%= form.text_field :service_name %>
+  </p>
+  <p>
+    <%= form.label :cost %><br>
+    <%= form.text_area :cost %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

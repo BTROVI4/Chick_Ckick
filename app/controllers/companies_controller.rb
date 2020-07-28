@@ -33,10 +33,15 @@
 # end
 
 class CompaniesController < ActionController::Base
-
+    def show
+      @city = City.find(params[:city_id])
+      @company = @city.companies.find(params[:id])
+    end
+    
     def create
       @city = City.find(params[:city_id])
-      @city = @city.companies.create(company_params)
+      company = @city.companies.new(company_params)
+      company.save
       redirect_to city_path(@city)
     end
   
@@ -49,6 +54,6 @@ class CompaniesController < ActionController::Base
   
     private
       def company_params
-        params.require(:company).permit(:companyname, :adress)
+        params.require(:company).permit(:company_name, :adress)
       end
   end

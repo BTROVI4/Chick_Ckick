@@ -9,38 +9,11 @@
 </p>
 
 <h2>Companies list</h2>
-<%# <%= render @city.companies %> %>
-<% @city.companies.each do |company| %>
-<p>
-  <strong>Company name:</strong>
-  <%= company.companyname %>
-</p>
 
-<p>
-  <strong>Adress:</strong>
-  <%= company.adress %>
-</p>
-
-<p>
-  <%= link_to 'Remove Company', [company.city, company],
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %>
-</p>
-<% end %>
+<%= render @city.companies %>  
 
 <h2>Add a company:</h2>
-<%= form_with(model: [ @city, @city.companies.build ]) do |form| %>
-  <p>
-    <%= form.label :companyname %><br>
-    <%= form.text_field :companyname %>
-  </p>
-  <p>
-    <%= form.label :adress %><br>
-    <%= form.text_area :adress %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+
+<%= render 'companies/form' %>
 
 <%= link_to 'Back', cities_path %>

@@ -2,15 +2,20 @@ Rails.application.routes.draw do
   
   get 'welcome/index'
 
-  resources :cities, shallow: true do
-    resources :companies, shallow: true do
-      resources :services, shallow: true do
-        resources :specialists, shallow: true do  
+  resources :cities do
+    resources :companies do
+      resources :services do
+        resources :specialists do  
           resources :datas
         end
       end
     end
   end
+
+  namespace :api do
+    resources :cities
+  end
+
   
   
  
