@@ -1,0 +1,25 @@
+<p>
+  <strong>Name:</strong>
+  <tr>
+      <td><%= specialist.title %></td>
+    </tr>
+</p>
+
+<p>
+  <strong>Speciality:</strong>
+  <%= specialist.speciality %>
+</p>
+<p>
+  <strong>Info:</strong>
+  <%= specialist.info %>
+</p>
+
+<p>
+  <%= link_to 'Show Specialist', city_company_service_specialist_path(@city, @company, @service, specialist) %>
+</p>
+
+<p>
+  <%= link_to 'Remove Specialist', city_company_service_specialist_path(@city, @company, @service, specialist),
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>

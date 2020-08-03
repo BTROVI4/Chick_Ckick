@@ -1,0 +1,26 @@
+<% @company.services.each do |service| %>
+<p>
+  <strong>Service name:</strong>
+  <tr>
+      <td><%= service.title %></td>
+    </tr>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= service.cost %>
+</p>
+<p>
+  <strong>Time:</strong>
+  <%= service.wminutes %>
+</p>
+<% end %>
+<h2>Specialists list</h2>
+
+<%= render @service.specialists %>  
+
+<h2>Add a specialist:</h2>
+
+<%= render 'specialists/form' %>
+
+<%= link_to 'Back', cities_path %>

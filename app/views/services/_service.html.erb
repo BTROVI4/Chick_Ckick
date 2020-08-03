@@ -1,7 +1,7 @@
 <p>
   <strong>Service name:</strong>
   <tr>
-      <td><%= service.service_name %></td>
+      <td><%= service.title %></td>
     </tr>
 </p>
 
@@ -9,10 +9,17 @@
   <strong>Cost:</strong>
   <%= service.cost %>
 </p>
-
+<p>
+  <strong>Time:</strong>
+  <%= service.wminutes %>
+</p>
 
 <p>
-  <%= link_to 'Remove Company', city_company_service_path(@city, company, service),
+  <%= link_to 'Show Service', city_company_service_path(@city, @company, service) %>
+</p>
+
+<p>
+  <%= link_to 'Remove Service', city_company_service_path(@city, @company, service),
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
 </p>

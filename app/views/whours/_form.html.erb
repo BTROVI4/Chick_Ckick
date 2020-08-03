@@ -1,0 +1,21 @@
+<%= form_with(model: [ @city, @company, @service, @specialist, @city.companies.build.services.build.specialists.build.whours.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :month %><br>
+    <%= form.text_field :month %>
+  </p>
+  <p>
+    <%= form.label :day %><br>
+    <%= form.text_area :day %>
+  </p>
+  <p>
+    <%= form.label :year %><br>
+    <%= form.text_area :year %>
+  </p>
+  <p>
+    <%= form.label :time %><br>
+    <%= form.text_area :time %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

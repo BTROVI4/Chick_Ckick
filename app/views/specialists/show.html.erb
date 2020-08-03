@@ -1,0 +1,28 @@
+<% @service.specialists.each do |specialist| %>
+<p>
+  <strong>Service name:</strong>
+  <tr>
+      <td><%= specialist.title %></td>
+    </tr>
+</p>
+
+<p>
+  <strong>Speciality:</strong>
+  <%= specialist.speciality %>
+</p>
+
+<p>
+  <strong>Info:</strong>
+  <%= specialist.info %>
+</p>
+
+<% end %>
+<h2>Working hours list</h2>
+
+<%= render @specialist.whours %>  
+
+<h2>Add an occupated working hours:</h2>
+
+<%= render 'whours/form' %>
+
+<%= link_to 'Back', cities_path %>

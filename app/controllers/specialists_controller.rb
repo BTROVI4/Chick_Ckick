@@ -1,31 +1,34 @@
-class SpecialistsController < ApplicationController
-    def create
-      @service = Service.find(params[:service_id])
-      @specialist = @service.companies.new(specialist)
-    
-      if @specialist.save
-        render json: @specialist, status: :created, location: @specialist
-      else
-        render json: @specialist.errors, status: :unprocessable_entity
-      end
+class SpecialistsController < ActionController::Base
+  
+  layout 'application'
+  
+  def show
+    @city = City.find(params[:city_id])
+    @company = @city.companies.find(params[:company_id])
+    @service = @company.services.find(params[:service_id])
+    @specialist = @service.specialists.find(params[:id])
+  end
+
+  def create
+    @city = City.find(params[:city_id])
+    @company = @city.companies.find(params[:company_id])
+    @service = @company.services.find(params[:service_id])
+    specialist = @service.specialists.new(specialist_params)
+    specialist.save
+    redirect_to city_company_service_path(@city, @company, @service)
+  end
+
+  def destroy
+    @city = City.find(params[:city_id])
+    @company = @city.companies.find(params[:company_id])
+    @service = @company.services.find(params[:service_id])
+    @specialist = @service.specialists.find(params[:id])
+    @specialist.destroy
+    redirect_to city_company_service_path(@city, @company, @service)
+  end
+
+  private
+    def specialist_params
+      params.require(:specialist).permit(:title, :speciality, :info)
     end
-    
-    def update
-      if @specialist.update(specialist_params)
-        render json: @specialist
-      else
-        render json: @specialist.errors, status: :unprocessable_entity
-      end
-    end
-    
-    def destroy
-        @service = Service.find(params[:service_id])
-        @specialist = @service.companies.find(params[:id])
-        @specialist.destroy
-    end
-    
-    private
-        def specialist_params
-          params.require(:specialist).permit(:name, :speciality, :info)
-        end
-  end 
+end 

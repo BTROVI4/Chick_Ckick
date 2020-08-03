@@ -1,0 +1,17 @@
+<%= form_with(model: [ @city, @company, @service, @city.companies.build.services.build.specialists.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+  <p>
+    <%= form.label :speciality %><br>
+    <%= form.text_area :speciality %>
+  </p>
+  <p>
+    <%= form.label :info %><br>
+    <%= form.text_area :info %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

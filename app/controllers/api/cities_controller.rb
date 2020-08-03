@@ -1,4 +1,4 @@
-class Api::CitiesController < ActionController::Base
+class Api::CitiesController < ApplicationController
   before_action :set_city, only: [:show, :update, :destroy]
 
   def index

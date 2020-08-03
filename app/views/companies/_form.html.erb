@@ -1,7 +1,7 @@
 <%= form_with(model: [ @city, @city.companies.build ], local: true) do |form| %>
   <p>
-    <%= form.label :company_name %><br>
-    <%= form.text_field :company_name %>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
   </p>
   <p>
     <%= form.label :adress %><br>

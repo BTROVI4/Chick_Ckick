@@ -6,16 +6,26 @@ Rails.application.routes.draw do
     resources :companies do
       resources :services do
         resources :specialists do  
-          resources :datas
+          resources :whours
         end
       end
     end
   end
 
   namespace :api do
-    resources :cities
+    resources :cities do
+      resources :companies do
+        resources :services do
+          resources :specialists do 
+            member do
+              post :book_appointment
+            end
+            resources :whours
+          end
+        end
+      end
+    end
   end
-
   
   
  

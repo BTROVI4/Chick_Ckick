@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_27_124152) do
+ActiveRecord::Schema.define(version: 2020_07_29_081551) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "appoiments", force: :cascade do |t|
+    t.bigint "specialist_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["specialist_id"], name: "index_appoiments_on_specialist_id"
+  end
 
   create_table "cities", force: :cascade do |t|
     t.string "title", default: ""
@@ -23,7 +30,7 @@ ActiveRecord::Schema.define(version: 2020_07_27_124152) do
   end
 
   create_table "companies", force: :cascade do |t|
-    t.string "company_name", default: ""
+    t.string "title", default: ""
     t.text "adress", default: ""
     t.bigint "city_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -31,20 +38,10 @@ ActiveRecord::Schema.define(version: 2020_07_27_124152) do
     t.index ["city_id"], name: "index_companies_on_city_id"
   end
 
-  create_table "datas", force: :cascade do |t|
-    t.integer "month", default: 0
-    t.integer "year", default: 0
-    t.integer "day", default: 0
-    t.text "time", default: ""
-    t.bigint "specialist_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["specialist_id"], name: "index_datas_on_specialist_id"
-  end
-
   create_table "services", force: :cascade do |t|
-    t.string "service_name", default: ""
+    t.string "title", default: ""
     t.integer "cost", default: 0
+    t.integer "wminutes", default: 0
     t.bigint "company_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -52,7 +49,7 @@ ActiveRecord::Schema.define(version: 2020_07_27_124152) do
   end
 
   create_table "specialists", force: :cascade do |t|
-    t.string "name", default: ""
+    t.string "title", default: ""
     t.string "speciality", default: ""
     t.text "info", default: ""
     t.bigint "service_id", null: false
@@ -61,8 +58,20 @@ ActiveRecord::Schema.define(version: 2020_07_27_124152) do
     t.index ["service_id"], name: "index_specialists_on_service_id"
   end
 
+  create_table "whours", force: :cascade do |t|
+    t.integer "month", default: 0
+    t.integer "year", default: 0
+    t.integer "day", default: 0
+    t.text "time", default: ""
+    t.bigint "specialist_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["specialist_id"], name: "index_whours_on_specialist_id"
+  end
+
+  add_foreign_key "appoiments", "specialists"
   add_foreign_key "companies", "cities"
-  add_foreign_key "datas", "specialists"
   add_foreign_key "services", "companies"
   add_foreign_key "specialists", "services"
+  add_foreign_key "whours", "specialists"
 end
