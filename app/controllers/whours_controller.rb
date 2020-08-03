@@ -1,4 +1,4 @@
-class WhoursController < ApplicationController::Base
+class WhoursController < ApplicationController
 
   def create
     @city = City.find(params[:city_id])

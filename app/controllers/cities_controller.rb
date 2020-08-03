@@ -1,4 +1,4 @@
-class CitiesController < ActionController::Base
+class CitiesController < ApplicationController
   layout 'application'
 
     def index

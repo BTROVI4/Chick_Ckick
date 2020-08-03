@@ -1,4 +1,4 @@
-class ServicesController < ActionController::Base
+class ServicesController < ApplicationController
  
   layout 'application'
 

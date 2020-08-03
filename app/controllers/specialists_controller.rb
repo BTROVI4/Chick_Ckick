@@ -1,4 +1,4 @@
-class SpecialistsController < ActionController::Base
+class SpecialistsController < ApplicationController
   
   layout 'application'
   

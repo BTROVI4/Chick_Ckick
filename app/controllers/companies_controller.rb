@@ -1,4 +1,4 @@
-class CompaniesController < ActionController::Base
+class CompaniesController < ApplicationController
     
   layout 'application'
 
