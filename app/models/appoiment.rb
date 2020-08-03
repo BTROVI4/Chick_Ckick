@@ -1,7 +1,7 @@
 # require 'rubygems'
 # require 'httparty'
 
-# class AppoimentParty
+class AppoimentParty
 
 #     include HTTParty
     
@@ -20,4 +20,4 @@
 # class Appoiment < ApplicationRecord
 #     # belongs_to :service, foreign_key: "service_id", class_name: "Service"
 #     # belongs_to :specialist, foreign_key: "specialist_id", class_name: "Specialist"
-# end
+end
