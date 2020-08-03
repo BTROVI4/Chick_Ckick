@@ -1,7 +1,7 @@
 # require 'rubygems'
 # require 'httparty'
 
-class AppoimentParty
+class Appoiment < ApplicationRecord
 
 #     include HTTParty
     
