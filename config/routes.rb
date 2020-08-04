@@ -17,9 +17,6 @@ Rails.application.routes.draw do
       resources :companies do
         resources :services do
           resources :specialists do 
-            member do
-              post :book_appointment
-            end
             resources :whours
           end
         end

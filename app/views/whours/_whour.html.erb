@@ -1,6 +1,16 @@
 <p>
-  <strong>Occupated working hours: <%= whour.year %>.<%= whour.month %>.<%= whour.day %>  <%= whour.time %></strong>
+  <strong>Occupated working hours: <%= whour.date %></strong>
 </p>
+<p>
+  <strong>Client Name: <%= whour.clientName %></strong>
+</p>
+<p>
+  <strong>Client Surname: <%= whour.clientSurName %> </strong>
+</p>
+<p>
+  <strong>Client Number: <%= whour.clientNumber %></strong>
+</p>
+
 
 <p>
   <%= link_to 'Remove Working Hour', city_company_service_specialist_whour_path(@city, @company, @service, @specialist, whour),

@@ -59,10 +59,14 @@ ActiveRecord::Schema.define(version: 2020_07_29_081551) do
   end
 
   create_table "whours", force: :cascade do |t|
-    t.integer "month", default: 0
-    t.integer "year", default: 0
-    t.integer "day", default: 0
-    t.text "time", default: ""
+    t.string "date", default: ""
+    t.string "clientName", default: ""
+    t.string "clientSurName", default: ""
+    t.string "clientNumber", default: ""
+    t.integer "minOffsetX", default: 0
+    t.integer "minOffsetY", default: 0
+    t.integer "maxOffsetX", default: 0
+    t.integer "maxOffsetY", default: 0
     t.bigint "specialist_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

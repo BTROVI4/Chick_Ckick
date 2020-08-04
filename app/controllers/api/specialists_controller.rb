@@ -1,6 +1,6 @@
 class Api::SpecialistsController < ApplicationController
   before_action :set_city_company_service_specialist, only: [:show, :update, :destroy]
-  
+
   def index
     @city = City.find(params[:city_id])
     @company = @city.companies.find(params[:company_id])

@@ -1,6 +1,9 @@
 class Api::WhoursController < ApplicationController
   before_action :set_city_company_service_specialist_whour, only: [:show, :update, :destroy]
   
+  protect_from_forgery except: :create
+
+
   def index
     @city = City.find(params[:city_id])
     @company = @city.companies.find(params[:company_id])
@@ -21,7 +24,7 @@ class Api::WhoursController < ApplicationController
     @specialist = @service.specialists.find(params[:specialist_id])
     @whour = @specialist.whours.new(whour_params)
     if @whour.save
-      render json: @whour, status: :created, location: @whour
+      render json: @whour
     else
       render json: @whour.errors, status: :unprocessable_entity
     end
@@ -38,7 +41,7 @@ class Api::WhoursController < ApplicationController
 
   private
     def whour_params
-      params.fetch(:whour, {})
+      params.require(:whour).permit(:date, :clientName, :clientSurName, :clientNumber, :minOffsetX, :minOffsetY, :maxOffsetX, :maxOffsetY)
     end
 
     def set_city_company_service_specialist_whour

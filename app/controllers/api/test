@@ -1,0 +1,15 @@
+
+
+
+for (int i = start.1 i < end.1; i++){
+    for(int j = start.2;j < end.2; j++){
+        if(i == start2.1 && j == start.2){
+            return "Busy hours";
+        } 
+        else {
+            return "Good";
+        }     
+    }
+}
+
+
