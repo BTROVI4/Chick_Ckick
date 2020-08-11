@@ -1,11 +1,11 @@
 sclass Appointment < ApplicationRecord
   belongs_to :specialist, foreign_key: "specialist_id", class_name: "Specialist"
-  belongs_to :service, optional: true
+  # belongs_to :service, optional: true
 
   # before_validation :set_end_date
   # validate :appointment_check
 
-  private
+  # private
 
     # def set_end_date
     #   # Appointment.joins(:services).where()
