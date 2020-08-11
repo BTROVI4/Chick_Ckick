@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :companies do
       resources :services do
         resources :specialists do  
-          resources :whours
+          resources :appointments
         end
       end
     end
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
       resources :companies do
         resources :services do
           resources :specialists do 
-            resources :whours
+            resources :appointments
           end
         end
       end

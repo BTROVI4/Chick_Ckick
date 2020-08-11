@@ -15,11 +15,16 @@ ActiveRecord::Schema.define(version: 2020_07_29_081551) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "appoiments", force: :cascade do |t|
+  create_table "appointments", force: :cascade do |t|
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string "clientName", default: ""
+    t.string "clientSurName", default: ""
+    t.string "clientNumber", default: ""
     t.bigint "specialist_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["specialist_id"], name: "index_appoiments_on_specialist_id"
+    t.index ["specialist_id"], name: "index_appointments_on_specialist_id"
   end
 
   create_table "cities", force: :cascade do |t|
@@ -58,24 +63,8 @@ ActiveRecord::Schema.define(version: 2020_07_29_081551) do
     t.index ["service_id"], name: "index_specialists_on_service_id"
   end
 
-  create_table "whours", force: :cascade do |t|
-    t.string "date", default: ""
-    t.string "clientName", default: ""
-    t.string "clientSurName", default: ""
-    t.string "clientNumber", default: ""
-    t.integer "minOffsetX", default: 0
-    t.integer "minOffsetY", default: 0
-    t.integer "maxOffsetX", default: 0
-    t.integer "maxOffsetY", default: 0
-    t.bigint "specialist_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["specialist_id"], name: "index_whours_on_specialist_id"
-  end
-
-  add_foreign_key "appoiments", "specialists"
+  add_foreign_key "appointments", "specialists"
   add_foreign_key "companies", "cities"
   add_foreign_key "services", "companies"
   add_foreign_key "specialists", "services"
-  add_foreign_key "whours", "specialists"
 end

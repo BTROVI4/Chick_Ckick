@@ -1,0 +1,19 @@
+<p>
+  <strong>Occupated working hours: <%= appointment.start_date %></strong>
+</p>
+<p>
+  <strong>Client Name: <%= appointment.clientName %></strong>
+</p>
+<p>
+  <strong>Client Surname: <%= appointment.clientSurName %> </strong>
+</p>
+<p>
+  <strong>Client Number: <%= appointment.clientNumber %></strong>
+</p>
+
+
+<p>
+  <%= link_to 'Remove appointment', city_company_service_specialist_appointment_path(@city, @company, @service, @specialist, appointment),
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>
