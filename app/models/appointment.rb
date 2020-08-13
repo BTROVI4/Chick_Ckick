@@ -7,7 +7,6 @@ class Appointment < ApplicationRecord
   private
 
     def set_end_date
-      # Appointment.joins(:services).where()
       self.end_date = self.start_date + self.specialist.service.wminutes.minutes
     end
 
@@ -21,8 +20,7 @@ class Appointment < ApplicationRecord
 
           # Appointment.where("start_date <= ? AND end_date >= ?", start_date, end_date)
 
-          if start_date.to_time < appointment.start_date.to_time && end_date.to_time <= appointment.start_date.to_time || start_date.to_time > appointment.end_date.to_time && end_date.to_time >= appointment.end_date.to_time
-        
+          if start_date.to_time < appointment.start_date.to_time && end_date.to_time <= appointment.start_date.to_time || start_date.to_time > appointment.end_date.to_time && end_date.to_time >= appointment.end_date.to_time        
           else
             errors.add(:start_date, "Alreadedy booked")
             break     

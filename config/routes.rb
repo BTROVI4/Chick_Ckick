@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   
+  devise_for :users, controllers: {
+    confirmations: 'users/confirmations',
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
   get 'welcome/index'
 
   resources :cities do

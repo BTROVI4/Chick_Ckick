@@ -1,4 +1,6 @@
 class AppointmentsController < ApplicationController
+    before_action :authenticate_user!
+
     def create
         @city = City.find(params[:city_id])
         @company = @city.companies.find(params[:company_id])
