@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
     # before_action :authenticate_user!, only: [:create, :update, :destroy, :new, :edit]
-  
+    include Pundit
+
     def index
     end
 
