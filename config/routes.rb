@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   }
   get 'welcome/index'
 
-  resources :users
 
   resources :cities do
     resources :companies do
