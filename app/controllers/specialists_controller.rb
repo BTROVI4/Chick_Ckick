@@ -3,6 +3,13 @@ class SpecialistsController < ApplicationController
 
   layout 'application'
 
+  def index
+    @city = City.find(params[:city_id])
+    @company = @city.companies.find(params[:company_id])
+    @service = @company.services.find(params[:service_id])
+    @specialist = @service.specialists.all
+  end
+
   def show
     @city = City.find(params[:city_id])
     @company = @city.companies.find(params[:company_id])
@@ -33,6 +40,8 @@ class SpecialistsController < ApplicationController
     @company = @city.companies.find(params[:company_id])
     @service = @company.services.find(params[:service_id])
     @specialist = @service.specialists.find(params[:id])
+    authorize @specialist
+
     if @specialist.update(specialist_params)
       redirect_to city_company_service_path(@city, @company, @service)
     else

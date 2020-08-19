@@ -1,25 +1,22 @@
-<% @service.specialists.each do |specialist| %>
 <p>
   <strong>Service name:</strong>
   <tr>
-      <td><%= specialist.title %></td>
+      <td><%= @specialist.title %></td>
     </tr>
 </p>
 
 <p>
   <strong>Speciality:</strong>
-  <%= specialist.speciality %>
+  <%= @specialist.speciality %>
 </p>
 
 <p>
   <strong>Info:</strong>
-  <%= specialist.info %>
+  <%= @specialist.info %>
 </p>
-
-<% end %>
 <h2>Appointments list</h2>
 
 <%= render @specialist.appointments %>  
 
 <%= link_to 'Edit', edit_city_company_service_specialist_path(@city, @company, @service, @specialist) %> |
-<%= link_to 'Back', cities_path %>
+<%= link_to 'Back', city_company_service_path(@city, @company, @service) %>

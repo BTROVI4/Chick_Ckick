@@ -1,17 +1,15 @@
-<% @city.companies.each do |company| %>
 <p>
   <strong>Company name:</strong>
   <tr>
-      <td><%= company.title %></td>
+      <td><%= @company.title %></td>
     </tr>
 </p>
 
 <p>
   <strong>Adress:</strong>
-  <%= company.adress %>
+  <%= @company.adress %>
 </p>
 
-<% end %>
 <h2>Services list</h2>
 
 <%= render @company.services %>  
@@ -21,4 +19,4 @@
 <%= render 'services/form' %>
 
 <%= link_to 'Edit', edit_city_company_path(@city, @company) %> |
-<%= link_to 'Back', cities_path %>
+<%= link_to 'Back', city_path(@city) %>

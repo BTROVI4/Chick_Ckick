@@ -1,16 +1,13 @@
 class CitiesController < ApplicationController
-  layout 'application'
   before_action :authenticate_user!
+  
+  layout 'application'
 
   def index
     @cities = City.all
   end
  
   def show
-    @city = City.find(params[:id])
-  end
- 
-  def show_companies
     @city = City.find(params[:id])
   end
 
@@ -43,6 +40,7 @@ class CitiesController < ApplicationController
  
   def destroy
     @city = City.find(params[:id])
+    authorize @city
 
     @city.destroy
  

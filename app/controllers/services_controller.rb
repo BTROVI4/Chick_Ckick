@@ -3,6 +3,12 @@ class ServicesController < ApplicationController
 
   layout 'application'
 
+  def index
+    @city = City.find(params[:city_id])
+    @company = @city.companies.find(params[:company_id])
+    @service = @company.services.all
+  end
+
   def show
     @city = City.find(params[:city_id])
     @company = @city.companies.find(params[:company_id])
@@ -30,6 +36,8 @@ class ServicesController < ApplicationController
     @city = City.find(params[:city_id])
     @company = @city.companies.find(params[:company_id])
     @service = @company.services.find(params[:id])
+    authorize @service
+
     if @service.update(service_params)
       redirect_to city_company_path(@city, @company)
     else
