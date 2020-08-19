@@ -15,7 +15,7 @@ class SpecialistPolicy < ApplicationPolicy
   end
 
   def edit?
-    @current_user.company_editor? or @current_user.admin? or @current_user.user
+    @current_user.company_editor? or @current_user.admin? or @current_user.user?
   end
 
   def destroy?
