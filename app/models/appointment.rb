@@ -14,8 +14,9 @@ class Appointment < ApplicationRecord
     def appointment_check
       # valid = self.specialist.appointments.where("(appointments.start_date <= ? AND appointments.end_date >= ?) OR (appointments.start_date <= ? AND appointments.end_date >= ?)", start_date, start_date, end_date, end_date).count == 0
       # self.errors.add(:start_date, "Alreadedy booked")
-
-      Appointment.all.each do |appointment|
+ 
+      
+      self.specialist.appointments.each do |appointment|
         
         if start_date.to_date == appointment.start_date.to_date
 
